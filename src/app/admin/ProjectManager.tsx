@@ -61,7 +61,7 @@ export default function ProjectManager(props: ProjectManagerProps) {
           const res = await fetch(`/api/upload-image`, {
                 method: 'POST',
                 headers: {
-                  'X-API-Key': process.env.API_SECRET_KEY || '',
+                  'X-API-Key': process.env.API_SECRET_KEY ?? '',
                 },
                 body: formData,
             })
@@ -86,11 +86,11 @@ export default function ProjectManager(props: ProjectManagerProps) {
                 name: editing.name,
                 heroImage,
                 description: editing.description,
-                gitHubURL: editing.gitHubURL || null,
-                hostedURL: editing.hostedURL || null,
+                gitHubURL: editing.gitHubURL ?? null,
+                hostedURL: editing.hostedURL ?? null,
                 hidden: editing.hidden,
-                tags: editing.tags || [],
-                precedence: editing.precedence || 0,
+                tags: editing.tags ?? [],
+                precedence: editing.precedence ?? 0,
             });
             toast.success("Project saved successfully!")
             setLocalProjects((prev) => {
@@ -114,11 +114,11 @@ export default function ProjectManager(props: ProjectManagerProps) {
         try{
             if (editing?.heroImage) {
                 const formData = new FormData();
-                formData.append("deletedImage", editing?.heroImage || "");
+                formData.append("deletedImage", editing?.heroImage ?? "");
                 const res = await fetch(`/api/delete-image`, {
                         method: 'POST',
                         headers: {
-                        'X-API-Key': process.env.API_SECRET_KEY || '',
+                        'X-API-Key': process.env.API_SECRET_KEY ?? '',
                         },
                         body: formData,
                     })
@@ -289,9 +289,9 @@ export default function ProjectManager(props: ProjectManagerProps) {
                         <label>Precedence (higher numbers show first)</label>
                         <input
                             type="number"
-                            value={editing.precedence || 0}
+                            value={editing.precedence ?? 0}
                             onChange={(e) =>
-                                setEditing({ ...editing, precedence: parseInt(e.target.value, 10) || 0 })
+                                setEditing({ ...editing, precedence: parseInt(e.target.value, 10) ?? 0 })
                             }
                             placeholder="0"
                         />

@@ -7,10 +7,8 @@ import { useState, useEffect } from 'react';
 import Navbar from '../../_components/Navbar/Navbar';
 import RotatingText from './RotatingText'
 
-interface HeroProps{
-}
 
-export default function HeroSection(props:HeroProps){
+export default function HeroSection(props:any){
 
 
     return(

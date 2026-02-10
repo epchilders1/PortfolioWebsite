@@ -46,7 +46,7 @@ const LightPillar: React.FC<LightPillarProps> = ({
   // Check WebGL support
   useEffect(() => {
     const canvas = document.createElement('canvas');
-    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    const gl = canvas.getContext('webgl') ?? canvas.getContext('experimental-webgl');
     if (!gl) {
       setWebGLSupported(false);
     }

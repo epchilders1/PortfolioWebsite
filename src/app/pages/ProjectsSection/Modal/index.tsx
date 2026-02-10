@@ -5,7 +5,6 @@ import { createPortal } from 'react-dom';
 import * as FocusTrapModule from 'focus-trap-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import clsx from 'clsx';
-import Confetti from 'react-confetti'
 import type ModalProps from './modal.type';
 
 const FocusTrap = FocusTrapModule.FocusTrap ?? FocusTrapModule.default;

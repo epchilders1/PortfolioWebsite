@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
     const buffer = Buffer.from(await file.arrayBuffer());
 
     // Generate safe filename with timestamp to prevent overwrites/collisions
-    const fileExtension = file.name.split('.').pop()?.toLowerCase() || 'jpg';
+    const fileExtension = file.name.split('.').pop()?.toLowerCase() ?? 'jpg';
     const safeExtension = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'avif'].includes(fileExtension) ? fileExtension : 'jpg';
     const timestamp = Date.now();
     const fileName = `${type}/${file.name}/${timestamp}.${safeExtension}`;
