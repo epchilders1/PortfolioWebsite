@@ -1,0 +1,128 @@
+.projects-container {
+    padding: 100px 8%;
+    margin: 0 auto;
+}
+
+.projects-container h1 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #8b5cf6;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 32px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+@media (max-width: 968px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.projects-grid > div {
+    height: 100%;
+}
+
+.project-card {
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card > div:last-child {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.project-image {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 16px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.project-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #d1d5db;
+    margin: 0 0 8px;
+}
+
+.project-description {
+    font-size: 0.85rem;
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 0 0 16px;
+}
+
+.project-links {
+    display: flex;
+    margin-top: 20px;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.project-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 0 10px;
+}
+.project-tag{
+    font-size: 0.75rem;
+    color: #FFFFFF;
+    background-color: rgba(12, 95, 250, 0.3);
+    padding: 2px 8px;
+    border-radius: 9999px;
+}
+
+.project-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #1f1f28;
+    border: 1px solid #2a2a35;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #d1d5db;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.project-link:hover {
+    background-color: #2a2a35;
+    border-color: #8b5cf6;
+    color: #8b5cf6;
+}
+
+.project-link img {
+    width: 25px;
+    height: 25px;
+    opacity: 0.7;
+}

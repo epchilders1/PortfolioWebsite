@@ -1,0 +1,25 @@
+.about-container {
+    padding: 100px 8%;
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+.about-container h1 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #8b5cf6;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 32px;
+}
+
+.about-container p {
+    color: #d1d5db;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.about-container p:last-child {
+    margin-bottom: 0;
+}
