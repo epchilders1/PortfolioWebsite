@@ -7,6 +7,7 @@ import type { Project } from '../../types'
 import { GlowCard } from '~/app/_components/ui/glow-card'
 import { X } from 'lucide-react'
 import Modal from './Modal'
+import { useEffect, useRef } from 'react';
 
 interface ProjectProps {
     projects: Project[]
@@ -28,8 +29,28 @@ export default function ProjectsSection(props: ProjectProps) {
         setModalOpen(true)
     }
 
+    const sectionRef = useRef<HTMLDivElement>(null);
+        
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry?.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            },
+            { threshold: 0.2 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <div id="projects-section" className="projects-container">
+        <div id="projects-section" className="projects-container" ref={sectionRef}>
             <h1>Projects</h1>
             <div className="projects-grid">
                 {projects.filter(p => !p.hidden).map((project) => (

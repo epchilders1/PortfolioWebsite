@@ -1,5 +1,7 @@
+"use client";
 import './Skills.css';
 import SkillPill, { type Skill } from './SkillPill';
+import { useEffect, useRef } from 'react';
 
 interface SkillCategory {
     label: string;
@@ -59,8 +61,27 @@ const categories: SkillCategory[] = [
 ];
 
 export default function SkillsSection() {
+     const sectionRef = useRef<HTMLDivElement>(null);
+    
+        useEffect(() => {
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry?.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                },
+                { threshold: 0.2 }
+            );
+    
+            if (sectionRef.current) {
+                observer.observe(sectionRef.current);
+            }
+    
+            return () => observer.disconnect();
+        }, []);
     return (
-        <div id="skills-section" className="skill-container">
+        <div id="skills-section" className="skill-container" ref={sectionRef}>
             <h1>Skills</h1>
             <div className="skill-categories">
                 {categories.map((category, i) => (
