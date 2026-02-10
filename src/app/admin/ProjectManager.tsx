@@ -61,7 +61,7 @@ export default function ProjectManager(props: ProjectManagerProps) {
           const res = await fetch(`/api/upload-image`, {
                 method: 'POST',
                 headers: {
-                  'X-API-Key': process.env.NEXT_PUBLIC_API_SECRET_KEY || '',
+                  'X-API-Key': process.env.API_SECRET_KEY || '',
                 },
                 body: formData,
             })
@@ -118,7 +118,7 @@ export default function ProjectManager(props: ProjectManagerProps) {
                 const res = await fetch(`/api/delete-image`, {
                         method: 'POST',
                         headers: {
-                        'X-API-Key': process.env.NEXT_PUBLIC_API_SECRET_KEY || '',
+                        'X-API-Key': process.env.API_SECRET_KEY || '',
                         },
                         body: formData,
                     })

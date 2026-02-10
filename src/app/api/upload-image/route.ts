@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const EXPECTED_API_KEY = process.env.NEXT_PUBLIC_API_SECRET_KEY;
+    const EXPECTED_API_KEY = process.env.API_SECRET_KEY;
     const providedKey = req.headers.get('X-API-KEY');
 
     if (!providedKey || providedKey !== EXPECTED_API_KEY) {
