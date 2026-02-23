@@ -2502,6 +2502,7 @@ export namespace Prisma {
     id: number
     name: number
     heroImage: number
+    galleryImages: number
     description: number
     precedence: number
     createdAt: number
@@ -2555,6 +2556,7 @@ export namespace Prisma {
     id?: true
     name?: true
     heroImage?: true
+    galleryImages?: true
     description?: true
     precedence?: true
     createdAt?: true
@@ -2657,6 +2659,7 @@ export namespace Prisma {
     id: string
     name: string
     heroImage: string
+    galleryImages: string[]
     description: string
     precedence: number
     createdAt: Date
@@ -2691,6 +2694,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     heroImage?: boolean
+    galleryImages?: boolean
     description?: boolean
     precedence?: boolean
     createdAt?: boolean
@@ -2709,6 +2713,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     heroImage?: boolean
+    galleryImages?: boolean
     description?: boolean
     precedence?: boolean
     createdAt?: boolean
@@ -2725,6 +2730,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     heroImage?: boolean
+    galleryImages?: boolean
     description?: boolean
     precedence?: boolean
     createdAt?: boolean
@@ -2741,6 +2747,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     heroImage?: boolean
+    galleryImages?: boolean
     description?: boolean
     precedence?: boolean
     createdAt?: boolean
@@ -2752,7 +2759,7 @@ export namespace Prisma {
     tags?: boolean
   }
 
-  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "heroImage" | "description" | "precedence" | "createdAt" | "updatedAt" | "gitHubURL" | "hostedURL" | "hidden" | "createdById" | "tags", ExtArgs["result"]["project"]>
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "heroImage" | "galleryImages" | "description" | "precedence" | "createdAt" | "updatedAt" | "gitHubURL" | "hostedURL" | "hidden" | "createdById" | "tags", ExtArgs["result"]["project"]>
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     createdBy?: boolean | UserDefaultArgs<ExtArgs>
     blogPosts?: boolean | Project$blogPostsArgs<ExtArgs>
@@ -2775,6 +2782,7 @@ export namespace Prisma {
       id: string
       name: string
       heroImage: string
+      galleryImages: string[]
       description: string
       precedence: number
       createdAt: Date
@@ -3212,6 +3220,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Project", 'String'>
     readonly name: FieldRef<"Project", 'String'>
     readonly heroImage: FieldRef<"Project", 'String'>
+    readonly galleryImages: FieldRef<"Project", 'String[]'>
     readonly description: FieldRef<"Project", 'String'>
     readonly precedence: FieldRef<"Project", 'Int'>
     readonly createdAt: FieldRef<"Project", 'DateTime'>
@@ -7091,6 +7100,7 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     heroImage: 'heroImage',
+    galleryImages: 'galleryImages',
     description: 'description',
     precedence: 'precedence',
     createdAt: 'createdAt',
@@ -7325,6 +7335,7 @@ export namespace Prisma {
     id?: StringFilter<"Project"> | string
     name?: StringFilter<"Project"> | string
     heroImage?: StringFilter<"Project"> | string
+    galleryImages?: StringNullableListFilter<"Project">
     description?: StringFilter<"Project"> | string
     precedence?: IntFilter<"Project"> | number
     createdAt?: DateTimeFilter<"Project"> | Date | string
@@ -7342,6 +7353,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     heroImage?: SortOrder
+    galleryImages?: SortOrder
     description?: SortOrder
     precedence?: SortOrder
     createdAt?: SortOrder
@@ -7362,6 +7374,7 @@ export namespace Prisma {
     NOT?: ProjectWhereInput | ProjectWhereInput[]
     name?: StringFilter<"Project"> | string
     heroImage?: StringFilter<"Project"> | string
+    galleryImages?: StringNullableListFilter<"Project">
     description?: StringFilter<"Project"> | string
     precedence?: IntFilter<"Project"> | number
     createdAt?: DateTimeFilter<"Project"> | Date | string
@@ -7379,6 +7392,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     heroImage?: SortOrder
+    galleryImages?: SortOrder
     description?: SortOrder
     precedence?: SortOrder
     createdAt?: SortOrder
@@ -7402,6 +7416,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Project"> | string
     name?: StringWithAggregatesFilter<"Project"> | string
     heroImage?: StringWithAggregatesFilter<"Project"> | string
+    galleryImages?: StringNullableListFilter<"Project">
     description?: StringWithAggregatesFilter<"Project"> | string
     precedence?: IntWithAggregatesFilter<"Project"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
@@ -7711,6 +7726,7 @@ export namespace Prisma {
     id?: string
     name: string
     heroImage: string
+    galleryImages?: ProjectCreategalleryImagesInput | string[]
     description: string
     precedence?: number
     createdAt?: Date | string
@@ -7727,6 +7743,7 @@ export namespace Prisma {
     id?: string
     name: string
     heroImage: string
+    galleryImages?: ProjectCreategalleryImagesInput | string[]
     description: string
     precedence?: number
     createdAt?: Date | string
@@ -7743,6 +7760,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     heroImage?: StringFieldUpdateOperationsInput | string
+    galleryImages?: ProjectUpdategalleryImagesInput | string[]
     description?: StringFieldUpdateOperationsInput | string
     precedence?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7759,6 +7777,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     heroImage?: StringFieldUpdateOperationsInput | string
+    galleryImages?: ProjectUpdategalleryImagesInput | string[]
     description?: StringFieldUpdateOperationsInput | string
     precedence?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7775,6 +7794,7 @@ export namespace Prisma {
     id?: string
     name: string
     heroImage: string
+    galleryImages?: ProjectCreategalleryImagesInput | string[]
     description: string
     precedence?: number
     createdAt?: Date | string
@@ -7790,6 +7810,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     heroImage?: StringFieldUpdateOperationsInput | string
+    galleryImages?: ProjectUpdategalleryImagesInput | string[]
     description?: StringFieldUpdateOperationsInput | string
     precedence?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7804,6 +7825,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     heroImage?: StringFieldUpdateOperationsInput | string
+    galleryImages?: ProjectUpdategalleryImagesInput | string[]
     description?: StringFieldUpdateOperationsInput | string
     precedence?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8201,6 +8223,14 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -8210,14 +8240,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type StringNullableListFilter<$PrismaModel = never> = {
-    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    has?: string | StringFieldRefInput<$PrismaModel> | null
-    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
-    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
-    isEmpty?: boolean
   }
 
   export type BlogPostListRelationFilter = {
@@ -8234,6 +8256,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     heroImage?: SortOrder
+    galleryImages?: SortOrder
     description?: SortOrder
     precedence?: SortOrder
     createdAt?: SortOrder
@@ -8533,6 +8556,10 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBlogPostsInput, UserUpdateWithoutBlogPostsInput>, UserUncheckedUpdateWithoutBlogPostsInput>
   }
 
+  export type ProjectCreategalleryImagesInput = {
+    set: string[]
+  }
+
   export type ProjectCreatetagsInput = {
     set: string[]
   }
@@ -8555,6 +8582,11 @@ export namespace Prisma {
     connectOrCreate?: BlogPostCreateOrConnectWithoutProjectInput | BlogPostCreateOrConnectWithoutProjectInput[]
     createMany?: BlogPostCreateManyProjectInputEnvelope
     connect?: BlogPostWhereUniqueInput | BlogPostWhereUniqueInput[]
+  }
+
+  export type ProjectUpdategalleryImagesInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -9019,6 +9051,7 @@ export namespace Prisma {
     id?: string
     name: string
     heroImage: string
+    galleryImages?: ProjectCreategalleryImagesInput | string[]
     description: string
     precedence?: number
     createdAt?: Date | string
@@ -9034,6 +9067,7 @@ export namespace Prisma {
     id?: string
     name: string
     heroImage: string
+    galleryImages?: ProjectCreategalleryImagesInput | string[]
     description: string
     precedence?: number
     createdAt?: Date | string
@@ -9092,6 +9126,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     heroImage?: StringFieldUpdateOperationsInput | string
+    galleryImages?: ProjectUpdategalleryImagesInput | string[]
     description?: StringFieldUpdateOperationsInput | string
     precedence?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9107,6 +9142,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     heroImage?: StringFieldUpdateOperationsInput | string
+    galleryImages?: ProjectUpdategalleryImagesInput | string[]
     description?: StringFieldUpdateOperationsInput | string
     precedence?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9492,6 +9528,7 @@ export namespace Prisma {
     id?: string
     name: string
     heroImage: string
+    galleryImages?: ProjectCreategalleryImagesInput | string[]
     description: string
     precedence?: number
     createdAt?: Date | string
@@ -9507,6 +9544,7 @@ export namespace Prisma {
     id?: string
     name: string
     heroImage: string
+    galleryImages?: ProjectCreategalleryImagesInput | string[]
     description: string
     precedence?: number
     createdAt?: Date | string
@@ -9628,6 +9666,7 @@ export namespace Prisma {
     id?: StringFilter<"Project"> | string
     name?: StringFilter<"Project"> | string
     heroImage?: StringFilter<"Project"> | string
+    galleryImages?: StringNullableListFilter<"Project">
     description?: StringFilter<"Project"> | string
     precedence?: IntFilter<"Project"> | number
     createdAt?: DateTimeFilter<"Project"> | Date | string
@@ -9719,6 +9758,7 @@ export namespace Prisma {
     id?: string
     name: string
     heroImage: string
+    galleryImages?: ProjectCreategalleryImagesInput | string[]
     description: string
     precedence?: number
     createdAt?: Date | string
@@ -9829,6 +9869,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     heroImage?: StringFieldUpdateOperationsInput | string
+    galleryImages?: ProjectUpdategalleryImagesInput | string[]
     description?: StringFieldUpdateOperationsInput | string
     precedence?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9844,6 +9885,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     heroImage?: StringFieldUpdateOperationsInput | string
+    galleryImages?: ProjectUpdategalleryImagesInput | string[]
     description?: StringFieldUpdateOperationsInput | string
     precedence?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9859,6 +9901,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     heroImage?: StringFieldUpdateOperationsInput | string
+    galleryImages?: ProjectUpdategalleryImagesInput | string[]
     description?: StringFieldUpdateOperationsInput | string
     precedence?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string

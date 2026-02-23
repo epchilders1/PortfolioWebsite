@@ -30,20 +30,21 @@ model BlogPost {
 }
 
 model Project {
-  id          String     @id @default(cuid())
-  name        String
-  heroImage   String
-  description String
-  precedence  Int        @default(0)
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
-  gitHubURL   String?
-  hostedURL   String?
-  hidden      Boolean    @default(false)
-  createdBy   User       @relation(fields: [createdById], references: [id])
-  createdById String
-  tags        String[]
-  blogPosts   BlogPost[]
+  id            String     @id @default(cuid())
+  name          String
+  heroImage     String
+  galleryImages String[]
+  description   String
+  precedence    Int        @default(0)
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  gitHubURL     String?
+  hostedURL     String?
+  hidden        Boolean    @default(false)
+  createdBy     User       @relation(fields: [createdById], references: [id])
+  createdById   String
+  tags          String[]
+  blogPosts     BlogPost[]
 }
 
 // Necessary for Next auth

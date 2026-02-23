@@ -27,16 +27,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const EXPECTED_API_KEY = process.env.API_SECRET_KEY;
-    const providedKey = req.headers.get('X-API-KEY');
-
-    if (!providedKey || providedKey !== EXPECTED_API_KEY) {
-      return NextResponse.json(
-        { error: 'Unauthorized: Invalid or missing API key' },
-        { status: 401 }
-      );
-    }
-
     const formData = await req.formData();
 
     const file = formData.get("image") as File;

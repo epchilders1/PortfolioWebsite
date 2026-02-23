@@ -60,9 +60,6 @@ export default function ProjectManager(props: ProjectManagerProps) {
           formData.append("type", FileTypes.ProjectHeros)
           const res = await fetch(`/api/upload-image`, {
                 method: 'POST',
-                headers: {
-                  'X-API-Key': process.env.API_SECRET_KEY ?? '',
-                },
                 body: formData,
             })
           if (!res.ok) {
@@ -117,9 +114,6 @@ export default function ProjectManager(props: ProjectManagerProps) {
                 formData.append("deletedImage", editing?.heroImage ?? "");
                 const res = await fetch(`/api/delete-image`, {
                         method: 'POST',
-                        headers: {
-                        'X-API-Key': process.env.API_SECRET_KEY ?? '',
-                        },
                         body: formData,
                     })
                 if (!res.ok) {
