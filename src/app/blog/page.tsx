@@ -13,7 +13,7 @@ export default async function Blog(){
         hidden: post.hidden,
         datePosted: post.createdAt.toISOString().split("T")[0],
         readTimeMinutes: post.readTimeMinutes,
-        project: post.project !== null ? post.project : undefined,
+        project: post.project ?? undefined,
     }));
 
     return(
