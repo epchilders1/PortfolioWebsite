@@ -1319,8 +1319,18 @@ export namespace Prisma {
 
   export type AggregateBlogPost = {
     _count: BlogPostCountAggregateOutputType | null
+    _avg: BlogPostAvgAggregateOutputType | null
+    _sum: BlogPostSumAggregateOutputType | null
     _min: BlogPostMinAggregateOutputType | null
     _max: BlogPostMaxAggregateOutputType | null
+  }
+
+  export type BlogPostAvgAggregateOutputType = {
+    readTimeMinutes: number | null
+  }
+
+  export type BlogPostSumAggregateOutputType = {
+    readTimeMinutes: number | null
   }
 
   export type BlogPostMinAggregateOutputType = {
@@ -1328,6 +1338,7 @@ export namespace Prisma {
     headline: string | null
     heroImage: string | null
     markDownContent: string | null
+    readTimeMinutes: number | null
     createdAt: Date | null
     updatedAt: Date | null
     projectId: string | null
@@ -1340,6 +1351,7 @@ export namespace Prisma {
     headline: string | null
     heroImage: string | null
     markDownContent: string | null
+    readTimeMinutes: number | null
     createdAt: Date | null
     updatedAt: Date | null
     projectId: string | null
@@ -1352,6 +1364,7 @@ export namespace Prisma {
     headline: number
     heroImage: number
     markDownContent: number
+    readTimeMinutes: number
     createdAt: number
     updatedAt: number
     projectId: number
@@ -1361,11 +1374,20 @@ export namespace Prisma {
   }
 
 
+  export type BlogPostAvgAggregateInputType = {
+    readTimeMinutes?: true
+  }
+
+  export type BlogPostSumAggregateInputType = {
+    readTimeMinutes?: true
+  }
+
   export type BlogPostMinAggregateInputType = {
     id?: true
     headline?: true
     heroImage?: true
     markDownContent?: true
+    readTimeMinutes?: true
     createdAt?: true
     updatedAt?: true
     projectId?: true
@@ -1378,6 +1400,7 @@ export namespace Prisma {
     headline?: true
     heroImage?: true
     markDownContent?: true
+    readTimeMinutes?: true
     createdAt?: true
     updatedAt?: true
     projectId?: true
@@ -1390,6 +1413,7 @@ export namespace Prisma {
     headline?: true
     heroImage?: true
     markDownContent?: true
+    readTimeMinutes?: true
     createdAt?: true
     updatedAt?: true
     projectId?: true
@@ -1436,6 +1460,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: BlogPostAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BlogPostSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: BlogPostMinAggregateInputType
@@ -1466,6 +1502,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: BlogPostCountAggregateInputType | true
+    _avg?: BlogPostAvgAggregateInputType
+    _sum?: BlogPostSumAggregateInputType
     _min?: BlogPostMinAggregateInputType
     _max?: BlogPostMaxAggregateInputType
   }
@@ -1475,12 +1513,15 @@ export namespace Prisma {
     headline: string
     heroImage: string | null
     markDownContent: string
+    readTimeMinutes: number | null
     createdAt: Date
     updatedAt: Date
     projectId: string | null
     hidden: boolean
     createdById: string
     _count: BlogPostCountAggregateOutputType | null
+    _avg: BlogPostAvgAggregateOutputType | null
+    _sum: BlogPostSumAggregateOutputType | null
     _min: BlogPostMinAggregateOutputType | null
     _max: BlogPostMaxAggregateOutputType | null
   }
@@ -1504,6 +1545,7 @@ export namespace Prisma {
     headline?: boolean
     heroImage?: boolean
     markDownContent?: boolean
+    readTimeMinutes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     projectId?: boolean
@@ -1518,6 +1560,7 @@ export namespace Prisma {
     headline?: boolean
     heroImage?: boolean
     markDownContent?: boolean
+    readTimeMinutes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     projectId?: boolean
@@ -1532,6 +1575,7 @@ export namespace Prisma {
     headline?: boolean
     heroImage?: boolean
     markDownContent?: boolean
+    readTimeMinutes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     projectId?: boolean
@@ -1546,6 +1590,7 @@ export namespace Prisma {
     headline?: boolean
     heroImage?: boolean
     markDownContent?: boolean
+    readTimeMinutes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     projectId?: boolean
@@ -1553,7 +1598,7 @@ export namespace Prisma {
     createdById?: boolean
   }
 
-  export type BlogPostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "headline" | "heroImage" | "markDownContent" | "createdAt" | "updatedAt" | "projectId" | "hidden" | "createdById", ExtArgs["result"]["blogPost"]>
+  export type BlogPostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "headline" | "heroImage" | "markDownContent" | "readTimeMinutes" | "createdAt" | "updatedAt" | "projectId" | "hidden" | "createdById", ExtArgs["result"]["blogPost"]>
   export type BlogPostInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | BlogPost$projectArgs<ExtArgs>
     createdBy?: boolean | UserDefaultArgs<ExtArgs>
@@ -1578,6 +1623,7 @@ export namespace Prisma {
       headline: string
       heroImage: string | null
       markDownContent: string
+      readTimeMinutes: number | null
       createdAt: Date
       updatedAt: Date
       projectId: string | null
@@ -2012,6 +2058,7 @@ export namespace Prisma {
     readonly headline: FieldRef<"BlogPost", 'String'>
     readonly heroImage: FieldRef<"BlogPost", 'String'>
     readonly markDownContent: FieldRef<"BlogPost", 'String'>
+    readonly readTimeMinutes: FieldRef<"BlogPost", 'Int'>
     readonly createdAt: FieldRef<"BlogPost", 'DateTime'>
     readonly updatedAt: FieldRef<"BlogPost", 'DateTime'>
     readonly projectId: FieldRef<"BlogPost", 'String'>
@@ -7086,6 +7133,7 @@ export namespace Prisma {
     headline: 'headline',
     heroImage: 'heroImage',
     markDownContent: 'markDownContent',
+    readTimeMinutes: 'readTimeMinutes',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     projectId: 'projectId',
@@ -7199,6 +7247,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Int'
+   */
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int[]'
+   */
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -7216,20 +7278,6 @@ export namespace Prisma {
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
-
-
-  /**
-   * Reference to a field of type 'Int'
-   */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
-   * Reference to a field of type 'Int[]'
-   */
-  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 
@@ -7258,6 +7306,7 @@ export namespace Prisma {
     headline?: StringFilter<"BlogPost"> | string
     heroImage?: StringNullableFilter<"BlogPost"> | string | null
     markDownContent?: StringFilter<"BlogPost"> | string
+    readTimeMinutes?: IntNullableFilter<"BlogPost"> | number | null
     createdAt?: DateTimeFilter<"BlogPost"> | Date | string
     updatedAt?: DateTimeFilter<"BlogPost"> | Date | string
     projectId?: StringNullableFilter<"BlogPost"> | string | null
@@ -7272,6 +7321,7 @@ export namespace Prisma {
     headline?: SortOrder
     heroImage?: SortOrderInput | SortOrder
     markDownContent?: SortOrder
+    readTimeMinutes?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     projectId?: SortOrderInput | SortOrder
@@ -7289,6 +7339,7 @@ export namespace Prisma {
     headline?: StringFilter<"BlogPost"> | string
     heroImage?: StringNullableFilter<"BlogPost"> | string | null
     markDownContent?: StringFilter<"BlogPost"> | string
+    readTimeMinutes?: IntNullableFilter<"BlogPost"> | number | null
     createdAt?: DateTimeFilter<"BlogPost"> | Date | string
     updatedAt?: DateTimeFilter<"BlogPost"> | Date | string
     projectId?: StringNullableFilter<"BlogPost"> | string | null
@@ -7303,14 +7354,17 @@ export namespace Prisma {
     headline?: SortOrder
     heroImage?: SortOrderInput | SortOrder
     markDownContent?: SortOrder
+    readTimeMinutes?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     projectId?: SortOrderInput | SortOrder
     hidden?: SortOrder
     createdById?: SortOrder
     _count?: BlogPostCountOrderByAggregateInput
+    _avg?: BlogPostAvgOrderByAggregateInput
     _max?: BlogPostMaxOrderByAggregateInput
     _min?: BlogPostMinOrderByAggregateInput
+    _sum?: BlogPostSumOrderByAggregateInput
   }
 
   export type BlogPostScalarWhereWithAggregatesInput = {
@@ -7321,6 +7375,7 @@ export namespace Prisma {
     headline?: StringWithAggregatesFilter<"BlogPost"> | string
     heroImage?: StringNullableWithAggregatesFilter<"BlogPost"> | string | null
     markDownContent?: StringWithAggregatesFilter<"BlogPost"> | string
+    readTimeMinutes?: IntNullableWithAggregatesFilter<"BlogPost"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"BlogPost"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"BlogPost"> | Date | string
     projectId?: StringNullableWithAggregatesFilter<"BlogPost"> | string | null
@@ -7645,6 +7700,7 @@ export namespace Prisma {
     headline: string
     heroImage?: string | null
     markDownContent: string
+    readTimeMinutes?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     hidden?: boolean
@@ -7657,6 +7713,7 @@ export namespace Prisma {
     headline: string
     heroImage?: string | null
     markDownContent: string
+    readTimeMinutes?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     projectId?: string | null
@@ -7669,6 +7726,7 @@ export namespace Prisma {
     headline?: StringFieldUpdateOperationsInput | string
     heroImage?: NullableStringFieldUpdateOperationsInput | string | null
     markDownContent?: StringFieldUpdateOperationsInput | string
+    readTimeMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     hidden?: BoolFieldUpdateOperationsInput | boolean
@@ -7681,6 +7739,7 @@ export namespace Prisma {
     headline?: StringFieldUpdateOperationsInput | string
     heroImage?: NullableStringFieldUpdateOperationsInput | string | null
     markDownContent?: StringFieldUpdateOperationsInput | string
+    readTimeMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     projectId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7693,6 +7752,7 @@ export namespace Prisma {
     headline: string
     heroImage?: string | null
     markDownContent: string
+    readTimeMinutes?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     projectId?: string | null
@@ -7705,6 +7765,7 @@ export namespace Prisma {
     headline?: StringFieldUpdateOperationsInput | string
     heroImage?: NullableStringFieldUpdateOperationsInput | string | null
     markDownContent?: StringFieldUpdateOperationsInput | string
+    readTimeMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     hidden?: BoolFieldUpdateOperationsInput | boolean
@@ -7715,6 +7776,7 @@ export namespace Prisma {
     headline?: StringFieldUpdateOperationsInput | string
     heroImage?: NullableStringFieldUpdateOperationsInput | string | null
     markDownContent?: StringFieldUpdateOperationsInput | string
+    readTimeMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     projectId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8098,6 +8160,17 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -8134,6 +8207,7 @@ export namespace Prisma {
     headline?: SortOrder
     heroImage?: SortOrder
     markDownContent?: SortOrder
+    readTimeMinutes?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     projectId?: SortOrder
@@ -8141,11 +8215,16 @@ export namespace Prisma {
     createdById?: SortOrder
   }
 
+  export type BlogPostAvgOrderByAggregateInput = {
+    readTimeMinutes?: SortOrder
+  }
+
   export type BlogPostMaxOrderByAggregateInput = {
     id?: SortOrder
     headline?: SortOrder
     heroImage?: SortOrder
     markDownContent?: SortOrder
+    readTimeMinutes?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     projectId?: SortOrder
@@ -8158,11 +8237,16 @@ export namespace Prisma {
     headline?: SortOrder
     heroImage?: SortOrder
     markDownContent?: SortOrder
+    readTimeMinutes?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     projectId?: SortOrder
     hidden?: SortOrder
     createdById?: SortOrder
+  }
+
+  export type BlogPostSumOrderByAggregateInput = {
+    readTimeMinutes?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -8199,6 +8283,22 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -8320,17 +8420,6 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type AccountProviderProviderAccountIdCompoundUniqueInput = {
     provider: string
     providerAccountId: string
@@ -8392,22 +8481,6 @@ export namespace Prisma {
   export type AccountSumOrderByAggregateInput = {
     expires_at?: SortOrder
     refresh_token_expires_in?: SortOrder
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type SessionCountOrderByAggregateInput = {
@@ -8530,6 +8603,14 @@ export namespace Prisma {
     set?: string | null
   }
 
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
@@ -8642,14 +8723,6 @@ export namespace Prisma {
     create?: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
     connectOrCreate?: UserCreateOrConnectWithoutAccountsInput
     connect?: UserWhereUniqueInput
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type UserUpdateOneRequiredWithoutAccountsNestedInput = {
@@ -8874,6 +8947,17 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -8935,7 +9019,7 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -8943,7 +9027,23 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -8993,33 +9093,6 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
@@ -9219,6 +9292,7 @@ export namespace Prisma {
     headline: string
     heroImage?: string | null
     markDownContent: string
+    readTimeMinutes?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     hidden?: boolean
@@ -9230,6 +9304,7 @@ export namespace Prisma {
     headline: string
     heroImage?: string | null
     markDownContent: string
+    readTimeMinutes?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     hidden?: boolean
@@ -9303,6 +9378,7 @@ export namespace Prisma {
     headline?: StringFilter<"BlogPost"> | string
     heroImage?: StringNullableFilter<"BlogPost"> | string | null
     markDownContent?: StringFilter<"BlogPost"> | string
+    readTimeMinutes?: IntNullableFilter<"BlogPost"> | number | null
     createdAt?: DateTimeFilter<"BlogPost"> | Date | string
     updatedAt?: DateTimeFilter<"BlogPost"> | Date | string
     projectId?: StringNullableFilter<"BlogPost"> | string | null
@@ -9497,6 +9573,7 @@ export namespace Prisma {
     headline: string
     heroImage?: string | null
     markDownContent: string
+    readTimeMinutes?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     hidden?: boolean
@@ -9508,6 +9585,7 @@ export namespace Prisma {
     headline: string
     heroImage?: string | null
     markDownContent: string
+    readTimeMinutes?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     projectId?: string | null
@@ -9683,6 +9761,7 @@ export namespace Prisma {
     headline: string
     heroImage?: string | null
     markDownContent: string
+    readTimeMinutes?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     hidden?: boolean
@@ -9694,6 +9773,7 @@ export namespace Prisma {
     headline?: StringFieldUpdateOperationsInput | string
     heroImage?: NullableStringFieldUpdateOperationsInput | string | null
     markDownContent?: StringFieldUpdateOperationsInput | string
+    readTimeMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     hidden?: BoolFieldUpdateOperationsInput | boolean
@@ -9705,6 +9785,7 @@ export namespace Prisma {
     headline?: StringFieldUpdateOperationsInput | string
     heroImage?: NullableStringFieldUpdateOperationsInput | string | null
     markDownContent?: StringFieldUpdateOperationsInput | string
+    readTimeMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     hidden?: BoolFieldUpdateOperationsInput | boolean
@@ -9716,6 +9797,7 @@ export namespace Prisma {
     headline?: StringFieldUpdateOperationsInput | string
     heroImage?: NullableStringFieldUpdateOperationsInput | string | null
     markDownContent?: StringFieldUpdateOperationsInput | string
+    readTimeMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     hidden?: BoolFieldUpdateOperationsInput | boolean
@@ -9748,6 +9830,7 @@ export namespace Prisma {
     headline: string
     heroImage?: string | null
     markDownContent: string
+    readTimeMinutes?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     projectId?: string | null
@@ -9837,6 +9920,7 @@ export namespace Prisma {
     headline?: StringFieldUpdateOperationsInput | string
     heroImage?: NullableStringFieldUpdateOperationsInput | string | null
     markDownContent?: StringFieldUpdateOperationsInput | string
+    readTimeMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     hidden?: BoolFieldUpdateOperationsInput | boolean
@@ -9848,6 +9932,7 @@ export namespace Prisma {
     headline?: StringFieldUpdateOperationsInput | string
     heroImage?: NullableStringFieldUpdateOperationsInput | string | null
     markDownContent?: StringFieldUpdateOperationsInput | string
+    readTimeMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     projectId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -9859,6 +9944,7 @@ export namespace Prisma {
     headline?: StringFieldUpdateOperationsInput | string
     heroImage?: NullableStringFieldUpdateOperationsInput | string | null
     markDownContent?: StringFieldUpdateOperationsInput | string
+    readTimeMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     projectId?: NullableStringFieldUpdateOperationsInput | string | null

@@ -8,9 +8,11 @@ export const homeRouter = createTRPCRouter({
     const [projects, blogPosts] = await Promise.all([
       ctx.db.project.findMany({
         orderBy: { precedence: "desc" },
+        include: { blogPosts: true },
       }),
       ctx.db.blogPost.findMany({
         orderBy: { createdAt: "desc" },
+        include: { project: true },
       }),
     ]);
 

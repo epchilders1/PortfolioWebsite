@@ -2,6 +2,10 @@ export interface BlogPost{
     id: string
     headline: string
     markDownContent: string
+    heroImage?: string | null
+    datePosted?: string
+    readTimeMinutes?: number | null
+    hidden: boolean
     project?: Project
 }
 
@@ -22,5 +26,6 @@ export interface Project{
 export enum FileTypes{
     ProjectHeros = "project-heros",
     BlogPostHeros = "blog-heros",
+    BlogPostImages = "blog-post-images",
 }
 

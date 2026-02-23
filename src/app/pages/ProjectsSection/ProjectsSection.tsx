@@ -49,6 +49,7 @@ export default function ProjectsSection(props: ProjectProps) {
         return () => observer.disconnect();
     }, []);
 
+    console.log(projects);
     return (
         <div id="projects-section" className="projects-container" ref={sectionRef}>
             <h1>Projects</h1>
@@ -123,6 +124,29 @@ export default function ProjectsSection(props: ProjectProps) {
                                         ))}
                                     </div>
                                 )}
+
+                        <div className="project-modal-blog-posts">
+                            {selectedProject.blogPosts && selectedProject.blogPosts.length > 0 && (
+                                <>
+                                    <p className="project-modal-blog-posts-label">Related Posts</p>
+                                    <ul className="blog-posts-list">
+                                        {selectedProject.blogPosts.map((post) => (
+                                            <li key={post.id} className="blog-post-item">
+                                                {post.heroImage && (
+                                                    <img
+                                                        src={post.heroImage}
+                                                        alt={post.headline}
+                                                    />
+                                                )}
+                                                <a href={`/blog/${post.id}`} className="blog-post-link">
+                                                    {post.headline}
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </>
+                            )}
+                        </div>
                         <div className="project-modal-links">
                             {selectedProject.gitHubURL && (
                                 <a href={selectedProject.gitHubURL} target="_blank" rel="noopener noreferrer" className="project-link">
@@ -136,6 +160,7 @@ export default function ProjectsSection(props: ProjectProps) {
                                 </a>
                             )}
                         </div>
+
                         <button className="project-modal-close" onClick={() => setModalOpen(false)}>
                             <X size={20} />
                         </button>

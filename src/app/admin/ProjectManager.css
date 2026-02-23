@@ -111,6 +111,8 @@
 
 .pm-field input[type="text"],
 .pm-field input[type="url"],
+.pm-field input[type="date"],
+.pm-field input[type="number"],
 .pm-field textarea {
     width: 100%;
     padding: 10px 12px;
@@ -125,8 +127,14 @@
 }
 
 .pm-field input:focus,
+.pm-field input[type="date"]:focus,
+.pm-field input[type="number"]:focus,
 .pm-field textarea:focus {
     border-color: #8b5cf6;
+}
+
+.pm-field input[type="date"] {
+    color-scheme: dark;
 }
 
 .pm-field textarea {

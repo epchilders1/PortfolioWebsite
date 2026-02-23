@@ -27,6 +27,79 @@
     white-space: pre-wrap;
 }
 
+.project-modal-blog-posts {
+    padding: 0 20px 4px;
+}
+
+.project-modal-blog-posts-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.blog-posts-list {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(139, 92, 246, 0.4) transparent;
+}
+
+.blog-posts-list::-webkit-scrollbar {
+    height: 4px;
+}
+
+.blog-posts-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.blog-posts-list::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.4);
+    border-radius: 4px;
+}
+
+.blog-post-item {
+    flex: 0 0 160px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.blog-post-item:hover {
+    border-color: rgba(139, 92, 246, 0.5);
+    background: rgba(139, 92, 246, 0.06);
+}
+
+.blog-post-item img {
+    width: 100%;
+    height: 90px;
+    object-fit: cover;
+    display: block;
+}
+
+.blog-post-link {
+    display: block;
+    padding: 8px 10px;
+    font-size: 0.78rem;
+    color: #d1d5db;
+    text-decoration: none;
+    line-height: 1.4;
+}
+
+.blog-post-item:hover .blog-post-link {
+    color: #a78bfa;
+}
+
 .project-modal-links {
     margin-top: 20px;
     display: flex;

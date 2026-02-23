@@ -126,6 +126,7 @@ exports.Prisma.BlogPostScalarFieldEnum = {
   headline: 'headline',
   heroImage: 'heroImage',
   markDownContent: 'markDownContent',
+  readTimeMinutes: 'readTimeMinutes',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   projectId: 'projectId',

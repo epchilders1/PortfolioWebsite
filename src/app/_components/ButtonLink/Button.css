@@ -1,0 +1,11 @@
+.btn-link {
+    display: inline-block;
+    padding: 14px 40px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    background-color: #8b5cf6;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
