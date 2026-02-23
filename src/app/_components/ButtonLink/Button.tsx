@@ -9,7 +9,7 @@ interface ButtonLinkProps {
 export default function ButtonLink(props: ButtonLinkProps) {
     const { text, link, className } = props;
     return (
-        <a href={link} className={`btn-link ${className || ''}`}>
+        <a href={link} className={`btn-link ${className ?? ''}`}>
             {text}
         </a>
     );

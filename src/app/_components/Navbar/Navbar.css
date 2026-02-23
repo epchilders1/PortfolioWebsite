@@ -28,9 +28,9 @@
 }
 
 .nav-links {
-    display: none;
     align-items: center;
     gap: 8px;
+    text-wrap: nowrap;
 }
 
 @media (min-width: 768px) {
