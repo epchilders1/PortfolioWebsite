@@ -5,7 +5,7 @@ import BlogPostPage from "./BlogPostPage";
 
 
 
-export default async function BlogPost({ params }: { params: { id: string } }) {
+export default async function BlogPost({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
     const raw = await api.post.getBlogPostById({ id });
 
