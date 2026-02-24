@@ -16,7 +16,7 @@ interface BlogPageProps {
 
 export default function BlogPage(props: BlogPageProps) {
     const {blogPosts = []} = props;
-    console.log(blogPosts);
+    // console.log(blogPosts);
     const [filters, setFilters] = useState<BlogFilters>({
         query: '',
         sortOrder: 'newest',

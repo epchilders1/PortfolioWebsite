@@ -32,7 +32,7 @@ function formatDate(iso: string): string {
 export default function BlogPostItem(props: BlogPostItemProps){
     const { post, onEdit, onDelete } = props;
     const router = useRouter();
-    console.log(post);
+    // console.log(post);
 
     return(
         <li className="blog-card" onClick={() => router.push(`/blog/${post.id}`)}>
